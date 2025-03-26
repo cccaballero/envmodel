@@ -3,8 +3,6 @@ from pathlib import Path
 
 from coverage.core import os
 
-# from envmodel.version import VERSION
-
 VERSION = os.environ["TAG"]
 
 
