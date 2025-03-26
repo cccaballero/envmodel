@@ -23,8 +23,8 @@ from envmodel import VERSION, VERSION_SHORT
 # -- Project information -----------------------------------------------------
 
 project = "envmodel"
-copyright = f"{datetime.today().year}, Allen Institute for Artificial Intelligence"
-author = "Allen Institute for Artificial Intelligence"
+copyright = f"{datetime.today().year}, Carlos C. Caballero Diaz and contributors"
+author = "Carlos C. Caballero Diaz"
 version = VERSION_SHORT
 release = VERSION
 
@@ -82,7 +82,7 @@ typehints_defaults = "comma"
 #
 html_theme = "furo"
 
-html_title = f"envmodel v{VERSION}"
+html_title = f"EnvModel v{VERSION}"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

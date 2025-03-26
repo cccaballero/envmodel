@@ -1,4 +1,8 @@
-# **envmodel**
+# **EnvModel**
+
+Easily manage environment variables using Python classes
+
+
 
 ```{toctree}
 :maxdepth: 2
@@ -7,6 +11,7 @@
 
 installation
 overview
+fields
 ```
 
 ```{toctree}
