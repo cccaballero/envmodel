@@ -1,23 +1,23 @@
 Installation
 ============
 
-**my-package** supports Python >= 3.8.
+**envmodel** supports Python >= 3.12.
 
 ## Installing with `pip`
 
-**my-package** is available [on PyPI](https://pypi.org/project/my-package/). Just run
+**envmodel** is available [on PyPI](https://pypi.org/project/envmodel/). Just run
 
 ```bash
-pip install my-package
+pip install envmodel
 ```
 
 ## Installing from source
 
-To install **my-package** from source, first clone [the repository](https://github.com/allenai/python-package-template):
+To install **envmodel** from source, first clone [the repository](https://github.com/cccaballero/envmodel):
 
 ```bash
-git clone https://github.com/allenai/python-package-template.git
-cd python-package-template
+git clone https://github.com/cccaballero/envmodel.git
+cd envmodel
 ```
 
 Then run
