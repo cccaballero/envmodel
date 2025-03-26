@@ -1,6 +1,6 @@
 import pytest
 
-from envmodel import EnvModel, StringField, IntegerField
+from envmodel import EnvModel, IntegerField, StringField
 
 
 class EnvModelTest:
