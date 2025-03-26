@@ -3,7 +3,7 @@ from pathlib import Path
 
 from coverage.core import os
 
-VERSION = os.environ["TAG"]
+VERSION = os.environ["VERSION"]
 
 
 def main():

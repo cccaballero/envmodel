@@ -2,8 +2,9 @@
 
 set -e
 
+VERSION=$(python -c 'from envmodel.version import VERSION; print(VERSION)')
 TAG=$(python -c 'from envmodel.version import VERSION; print("v" + VERSION)')
-export TAG
+export VERSION
 
 read -p "Creating new release for $TAG. Do you want to continue? [Y/n] " prompt
 
