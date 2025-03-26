@@ -2,7 +2,6 @@ from envmodel import BooleanField
 
 
 class BooleanFieldTest:
-
     def test_returns_true_when_env_var_is_true(self, monkeypatch):
         # Arrange
         env_var_name = "TEST_BOOL"

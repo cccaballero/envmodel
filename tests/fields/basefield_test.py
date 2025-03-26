@@ -1,9 +1,7 @@
-
 from envmodel import BaseField
 
 
 class BaseFieldTest:
-
     def test_non_required_field_returns_default_value(self, monkeypatch):
         # Arrange
         default_value = "default_value"
@@ -21,6 +19,7 @@ class BaseFieldTest:
     def test_required_field_raises_exception_with_custom_error(self, monkeypatch):
         # Arrange
         import pytest
+
         custom_error = "This is a custom error message"
         field = BaseField(name="TEST_VAR", required=True, error=custom_error)
 
@@ -36,6 +35,7 @@ class BaseFieldTest:
     def test_required_field_raises_exception_with_default_error(self, monkeypatch):
         # Arrange
         import pytest
+
         var_name = "TEST_VAR"
         field = BaseField(name=var_name, required=True)
 

@@ -4,7 +4,6 @@ from envmodel import IntegerField
 
 
 class IntegerFieldTest:
-
     def test_init_with_name_and_default(self):
         # Arrange
         name = "TEST_INT"

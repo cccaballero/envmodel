@@ -4,7 +4,6 @@ from envmodel import StringListField
 
 
 class StringListFieldTest:
-
     def test_returns_list_from_comma_separated_env_var(self, mocker):
         # Arrange
         mocker.patch.dict(os.environ, {"TEST_LIST": "item1,item2,item3"})
