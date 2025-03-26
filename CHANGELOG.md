@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [vv0.1.0-1](https://github.com/cccaballero/envmodel/releases/tag/vv0.1.0-1) - 2025-03-26
+
 ## [v0.1.0-1](https://github.com/cccaballero/envmodel/releases/tag/v0.1.0-1) - 2025-03-26
 
 ### Added

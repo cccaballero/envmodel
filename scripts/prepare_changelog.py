@@ -1,7 +1,11 @@
 from datetime import datetime
 from pathlib import Path
 
-from envmodel.version import VERSION
+from coverage.core import os
+
+# from envmodel.version import VERSION
+
+VERSION = os.environ["TAG"]
 
 
 def main():
