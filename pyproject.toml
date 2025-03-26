@@ -33,7 +33,6 @@ Changelog = "https://github.com/cccaballero/envmodel/blob/main/CHANGELOG.md"
 dev = [
     "ruff",
     "mypy>=1.0,<2.0",
-    "black>=23.0,<25.0",
     "isort>=5.12,<5.14",
     "pytest",
     "pytest-sphinx",
@@ -70,22 +69,6 @@ envmodel = ["py.typed"]
 
 [tool.setuptools.dynamic]
 version = {attr = "envmodel.version.VERSION"}
-
-[tool.black]
-line-length = 100
-include = '\.pyi?$'
-exclude = '''
-(
-      __pycache__
-    | \.git
-    | \.mypy_cache
-    | \.pytest_cache
-    | \.vscode
-    | \.venv
-    | \bdist\b
-    | \bdoc\b
-)
-'''
 
 [tool.isort]
 profile = "black"

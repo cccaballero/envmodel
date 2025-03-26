@@ -121,13 +121,13 @@ When you're ready to contribute code to address an open issue, please follow the
 
     Our continuous integration (CI) testing runs [a number of checks](https://github.com/cccaballero/envmodel/actions) for each pull request on [GitHub Actions](https://github.com/features/actions). You can run most of these tests locally, which is something you should do *before* opening a PR to help speed up the review process and make it easier for us.
 
-    First, you should run [`isort`](https://github.com/PyCQA/isort) and [`black`](https://github.com/psf/black) to make sure you code is formatted consistently.
-    Many IDEs support code formatters as plugins, so you may be able to setup isort and black to run automatically everytime you save.
-    For example, [`black.vim`](https://github.com/psf/black/tree/master/plugin) will give you this functionality in Vim. But both `isort` and `black` are also easy to run directly from the command line.
+    First, you should run [`isort`](https://github.com/PyCQA/isort) and `ruff format` to make sure you code is formatted consistently.
+    Many IDEs support code formatters as plugins, so you may be able to setup isort and ruff to run automatically everytime you save.
+    Both `isort` and `ruff format` are also easy to run directly from the command line.
     Just run this from the root of your clone:
 
         isort .
-        black .
+        ruff format .
 
     Our CI also uses [`ruff`](https://github.com/astral-sh/ruff) to lint the code base and [`mypy`](http://mypy-lang.org/) for type-checking. You should run both of these next with
 
