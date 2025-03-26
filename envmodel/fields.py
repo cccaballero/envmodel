@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+from typing import Any
 
 
 class BaseField:
@@ -8,21 +9,21 @@ class BaseField:
         self,
         name: str,
         required: bool = False,
-        default: str = None,
-        error: str = None,
+        default: str | None = None,
+        error: str | None = None,
         lazy: bool = True,
-        warning: str = None,
+        warning: str | None = None,
     ):
         self.name = name
         self.required = required
-        self.default = default
+        self.default: Any = default
         self.error = f"Environment variable {name} is required" if error is None else error
         self.lazy = lazy
         self.warning = warning
 
-        self._config_value = None
+        self._config_value: Any = None
 
-    def get_env_variable(self) -> str:
+    def get_env_variable(self) -> Any:
         if not self.lazy and self._config_value is not None:
             return self._config_value
         self._config_value = os.getenv(self.name, self.default)
@@ -58,7 +59,7 @@ class BooleanField(BaseField):
 
 
 class IntegerField(BaseField):
-    def __init__(self, name, default: int = None, **kwargs):
+    def __init__(self, name, default: int | None = None, **kwargs):
         super().__init__(name, **kwargs)
         self.default = default
 
@@ -73,7 +74,7 @@ class IntegerField(BaseField):
 
 
 class FloatField(BaseField):
-    def __init__(self, name, default: float = None, **kwargs):
+    def __init__(self, name, default: float | None = None, **kwargs):
         super().__init__(name, **kwargs)
         self.default = default
 
@@ -91,7 +92,7 @@ class FloatField(BaseField):
 
 
 class JsonField(BaseField):
-    def __init__(self, name, default: dict = None, **kwargs):
+    def __init__(self, name, default: dict | None = None, **kwargs):
         super().__init__(name, **kwargs)
         self.default = default
 
@@ -115,7 +116,7 @@ class JsonField(BaseField):
 
 
 class StringListField(BaseField):
-    def __init__(self, name, default: list[str] = None, **kwargs):
+    def __init__(self, name, default: list[str] | None = None, **kwargs):
         super().__init__(name, **kwargs)
         self.default = default
 
