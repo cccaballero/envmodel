@@ -18,7 +18,7 @@ from datetime import datetime
 
 sys.path.insert(0, os.path.abspath("../../"))
 
-from envmodel import VERSION, VERSION_SHORT  # noqa: E402
+from envmodel import VERSION, VERSION_SHORT
 
 # -- Project information -----------------------------------------------------
 

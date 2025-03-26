@@ -8,3 +8,4 @@ from .fields import (
     StringField,
     StringListField,
 )
+from .version import VERSION, VERSION_SHORT
