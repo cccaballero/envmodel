@@ -12,6 +12,7 @@ A string field that can hold any string value.
 * `name`: The name of the environment variable.
 * `required`: Whether the environment variable is required. Defaults to `False`.
 * `default`: The default value of the environment variable. Defaults to `None`.
+* `allowed_values`: A list of allowed values for the environment variable.
 * `error`: The error message to display if the environment variable is not set. Defaults to a generic error message.
 
 #### Example
@@ -46,26 +47,28 @@ class MyConfig(EnvModel):
 ### FloatField
 
 A float field that can hold any float value.
-   
+
 #### Options
 
 * `name`: The name of the environment variable.
-* `required`: Whether the environment variable is required. Defaults to False.
-* `default`: The default value of the environment variable. Defaults to None.
+* `required`: Whether the environment variable is required. Defaults to `False`.
+* `default`: The default value of the environment variable. Defaults to `None`.
 * `error`: The error message to display if the environment variable is not set. Defaults to a generic error message.
- 
+
 #### Example
 
 ```python
 from envmodel import EnvModel, FloatField
 
-class MyConfig(EnvModel): 
-    timeout = FloatField(name="TIMEOUT", default=30.0)
+class MyConfig(EnvModel):
+    temperature = FloatField(name="TEMPERATURE", required=False, default=20.0)
 ```
+
+In this example, `temperature` will default to 20.0 if not set in the environment.
 
 ### BooleanField
 
-A boolean field that can hold a boolean value.
+A boolean field that can hold True or False values.
 
 #### Options
 
