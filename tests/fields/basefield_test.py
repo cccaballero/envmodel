@@ -1,3 +1,5 @@
+import pytest
+
 from envmodel import BaseField
 
 
@@ -47,4 +49,20 @@ class BaseFieldTest:
             field()
 
         expected_error = f"Environment variable {var_name} is required"
+        assert str(excinfo.value) == expected_error
+
+    # add a test for the allowed values
+    def test_allowed_values(self, monkeypatch):
+        # Arrange
+        allowed_values = ["value1", "value2"]
+        field = BaseField(name="TEST_VAR", allowed_values=allowed_values)
+
+        # Ensure the environment variable is set to a value not in the allowed values
+        monkeypatch.setenv("TEST_VAR", "not_allowed")
+
+        # Act & Assert
+        with pytest.raises(Exception) as excinfo:
+            field()
+
+        expected_error = f"Environment variable TEST_VAR must be one of {allowed_values}"
         assert str(excinfo.value) == expected_error

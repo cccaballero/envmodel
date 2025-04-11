@@ -10,6 +10,7 @@ class BaseField:
         name: str,
         required: bool = False,
         default: str | None = None,
+        allowed_values: list | None = None,
         error: str | None = None,
         lazy: bool = True,
         warning: str | None = None,
@@ -17,6 +18,7 @@ class BaseField:
         self.name = name
         self.required = required
         self.default: Any = default
+        self.allowed_values = allowed_values
         self.error = f"Environment variable {name} is required" if error is None else error
         self.lazy = lazy
         self.warning = warning
@@ -31,6 +33,8 @@ class BaseField:
 
     def __call__(self) -> str:
         env_value = self.get_env_variable()
+        if self.allowed_values and env_value not in self.allowed_values:
+            raise Exception(f"Environment variable {self.name} must be one of {self.allowed_values}")
         if self.required and env_value is None:
             raise Exception(self.error)
         if self.warning and env_value is None:
