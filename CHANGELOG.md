@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add new feature: allowed_values attribute to field types
 
+### Changed
+
+- Updated isort requirement from <5.14,>=5.12 to >=5.12,<6.1
+
 ## [v0.1.0-2](https://github.com/cccaballero/envmodel/releases/tag/v0.1.0-2) - 2025-03-26
 
 ### Added
