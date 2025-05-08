@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+- Replaced `__getattribute__` implementation with Python's descriptor protocol for better performance and cleaner code
+
 ## [v0.2.0](https://github.com/cccaballero/envmodel/releases/tag/v0.2.0) - 2025-04-11
 
 ### Added
