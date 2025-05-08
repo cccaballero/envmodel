@@ -33,7 +33,7 @@ class BaseField:
         if instance is None:
             # Class attribute access
             return self
-            
+
         # Return the processed environment variable
         return self()
 
