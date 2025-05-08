@@ -12,6 +12,7 @@ class EnvModel:
     def _touch_all_attributes(self):
         for name, field in self.__class__.__dict__.items():
             if isinstance(field, BaseField):
+                # Call the field directly to avoid triggering the descriptor twice
                 field()
 
     def __getattribute__(self, item: Any) -> Any:

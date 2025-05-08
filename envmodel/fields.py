@@ -22,8 +22,20 @@ class BaseField:
         self.error = f"Environment variable {name} is required" if error is None else error
         self.lazy = lazy
         self.warning = warning
-
+        self.attr_name = None
         self._config_value: Any = None
+
+    def __set_name__(self, owner, name):
+        # Store the attribute name on the descriptor
+        self.attr_name = name
+
+    def __get__(self, instance, owner):
+        if instance is None:
+            # Class attribute access
+            return self
+
+        # Return the processed environment variable
+        return self()
 
     def get_env_variable(self) -> Any:
         if not self.lazy and self._config_value is not None:
