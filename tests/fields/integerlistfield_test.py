@@ -52,7 +52,7 @@ class IntegerListFieldTest:
         field = IntegerListField(name=env_var_name)
         with pytest.raises(Exception) as excinfo:
             field.get_env_variable()
-        
+
         assert "must contain valid integers separated by commas" in str(excinfo.value)
 
     def test_get_env_variable_with_spaces(self, monkeypatch):
@@ -67,4 +67,3 @@ class IntegerListFieldTest:
 
         # Verify
         assert result == [1, 2, 3, 4, 5]
-
