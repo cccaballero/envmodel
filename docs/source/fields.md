@@ -108,19 +108,51 @@ class MyConfig(EnvModel):
 ### StringListField
 
 A string list field that can hold a list of string values. Each value is separated by a comma.
-  
-#### Options 
+
+**Parameters:**
 
 * `name`: The name of the environment variable.
-* `required`: Whether the environment variable is required. Defaults to `False`.
-* `default`: The default value of the environment variable. Defaults to `None`.
-* `error`: The error message to display if the environment variable is not set. Defaults to a generic error message.
+* `default`: The default value to use if the environment variable is not set.
+* `required`: Whether the environment variable is required.
+* `error`: The error message to display if the environment variable is required but not set.
+* `lazy`: Whether to lazily evaluate the environment variable.
+* `warning`: The warning message to display if the environment variable is not set.
 
-#### Example
+**Example:**
 
 ```python
 from envmodel import EnvModel, StringListField
 
 class MyConfig(EnvModel):
     allowed_hosts = StringListField(name="ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
+
+config = MyConfig()
+print(config.allowed_hosts)  # prints the value of ALLOWED_HOSTS environment variable or the default value
 ```
+
+### IntegerListField
+
+An integer list field that can hold a list of integer values. Each value is separated by a comma.
+
+**Parameters:**
+
+* `name`: The name of the environment variable.
+* `default`: The default value to use if the environment variable is not set.
+* `required`: Whether the environment variable is required.
+* `error`: The error message to display if the environment variable is required but not set.
+* `lazy`: Whether to lazily evaluate the environment variable.
+* `warning`: The warning message to display if the environment variable is not set.
+
+**Example:**
+
+```python
+from envmodel import EnvModel, IntegerListField
+
+class MyConfig(EnvModel):
+    ports = IntegerListField(name="PORTS", default=[8080, 8081])
+
+config = MyConfig()
+print(config.ports)  # prints the value of PORTS environment variable or the default value
+```
+
+If the environment variable `PORTS` is set to `"5000,5001,5002"`, `config.ports` will return `[5000, 5001, 5002]`.

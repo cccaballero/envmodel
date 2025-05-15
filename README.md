@@ -40,6 +40,7 @@ EnvModel supports the following field types:
 * `BooleanField`: A boolean field that can hold a boolean value.
 * `JsonField`: A JSON field that can hold any JSON value.
 * `StringListField`: A string list field that can hold a list of string values.
+* `IntegerListField`: An integer list field that can hold a list of integer values.
 
 See the [Field Types documentation](https://envmodel.readthedocs.io/en/latest/fields.html) for more details.
 

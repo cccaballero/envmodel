@@ -148,3 +148,24 @@ class StringListField(BaseField):
         except Exception:
             raise Exception(f"Environment variable {self.name} must be a valid (comma separated) list of strings")
         return self._config_value
+
+
+class IntegerListField(BaseField):
+    def __init__(self, name, default: list[int] | None = None, **kwargs):
+        super().__init__(name, **kwargs)
+        self.default = default
+
+    def get_env_variable(self) -> list[int]:
+        if not self.lazy and self._config_value is not None:
+            return self._config_value
+        try:
+            env_value = os.getenv(self.name, None)
+            if env_value is not None:
+                self._config_value = [int(element.strip()) for element in env_value.split(",") if element.strip()]
+            else:
+                self._config_value = self.default
+        except ValueError:
+            raise Exception(f"Environment variable {self.name} must contain valid integers separated by commas")
+        except Exception:
+            raise Exception(f"Environment variable {self.name} must be a valid (comma separated) list of integers")
+        return self._config_value
